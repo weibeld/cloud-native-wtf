@@ -1,0 +1,5 @@
+-
+  # Required: name of the tag. Used to derive ID of the tag by lowercasing letters and replacing spaces by dashes.
+  name:
+  # Required: description of the tag
+  description:

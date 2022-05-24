@@ -1,0 +1,31 @@
+- 
+  # Required: canonical name of the project. Used to derive ID of the project by lowercasing letters and replacing spaces by dashes.
+  name:
+  # Optional: acronym or abbreviation that the project is also known of
+  shortname:
+  # Optional: full name of the project, if the canonical name is an acronym or abbreviation
+  longname:
+  # Required: description of the project
+  description:
+  # Optional: URL of the main website of the project
+  website:
+  # Optional: URL of the GitHub repository of the project (TODO: change name of field if any project is hosted on another platform)
+  github:
+  # Required (ID from 'orgs'): organisation that currently host or develops the project
+  hosted-by:
+  # Optional (ID from 'orgs'): organisation that initiated the project if it is currently hosted by
+  # another organisation (typically the case with projects donated to CNCF).
+  initiated-by:
+  # Required (list of IDs from 'tags'): category tags of the project
+  tags:
+  # Optional: CNCF-specific information about the project (if any)
+  cncf:
+    # Optional (boolean): whether the project is part of the CNCF Landscape
+    landscape:
+    # Optional (boolean): whether the project is hosted by CNCF (implies 'landscape' to be 'true')
+    hosted:
+    # Optional: status of the CNCF-hosted project, one of 'sandbox', 'incubating', or 'graduated'. May only be set if 'hosted' is 'true'.
+    hosted-status:
+    # Optional: canonical name of the project in the CNCF Landscape. If this is not set, the canonical name defined in '.name' is assumed.
+    # Used to match projects to the projects in the CNCF Landscape for automatically extracting data such as URLs or logos.
+    name: 

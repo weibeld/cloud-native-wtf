@@ -1,0 +1,9 @@
+-
+  # Required: canonical name of the organisation. Used to derive ID of the organistion by lowercasing letters and replacing spaces by dashes.
+  name:
+  # Optional: acronym or abbreviation that the organisation is also known of
+  shortname:
+  # Optional: full name of the organisation, if the canonical name is an acronym or abbreviation
+  longname:
+  # Optional: URL of the main website of the organisation
+  website:
