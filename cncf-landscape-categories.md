@@ -1,0 +1,31 @@
+- Provisioning
+  - Automation & Configuration
+  - Container Registry
+  - Security & Compliance
+  - Key Management
+- Runtime
+  - Cloud Native Storage
+  - Container Runtime
+  - Cloud Native Network
+- Orchestration & Management
+  - ✅ Scheduling & Orchestration
+  - ✅ Coordination & Service Discovery
+  - ✅ Remote Procedure Call (no projects included)
+  - ✅ Service Proxy
+  - ✅ API Gateway
+  - ✅ Service Mesh
+- App Definition and Development
+  - Database
+  - Streaming & Messaging
+  - Application Definition & Image Build
+  - Continuous Integration & Delivery
+- Observability and Analysis
+  - Monitoring
+  - Logging
+  - Tracing
+  - Chaos Engineering
+- Platform
+  - Certified Kubernetes - Distribution
+  - Certified Kubernetes - Hosted
+  - Certified Kubernetes - Installer
+  - PaaS/Container 
