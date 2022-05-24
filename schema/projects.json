@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Projects Schema",
+  "description": "List of projects.",
+  "type": "array",
+  "uniqueItems": true,
+  "items": {
+    "description": "An individual project.",
+    "type": "object",
+    "properties": {
+      "name": {
+        "description": "Canonical name of the project. This is used to derive the project ID by lowercasing letters and replacing spaces by dashes.",
+        "type": "string"
+      },
+      "shortname": {
+        "description": "Acronym or abbreviation that the project is also known of.",
+        "type": "string"
+      },
+      "longname": {
+        "description": "Full name of the project, if the canonical name is an acronym or abbreviation.",
+        "type": "string"
+      },
+      "description": {
+        "description": "Description of the project. May contain Markdown.",
+        "type": "string"
+      },
+      "website": {
+        "description": "URL of the main website of the project.",
+        "type": "string"
+      },
+      "github": {
+        "description": "URL of the GitHub repository (or organisation page) of the project (assumes that all projects are on GitHub).",
+        "type": "string"
+      },
+      "hosted-by": {
+        "description": "Organisation that currently hosts the project. Must be an ID from the 'Orgs' schema. For CNCF-hosted projects, this does not need to be set, as the fact of CNCF hostig is recorded in the 'cncf' object.",
+        "type": "string"
+      },
+      "initiated-by": {
+        "description": "Organisation that initiated the project if it is currently hosted by another organisation (typically the case for projects that have been donated to CNCF). Must be an ID from the 'Orgs' schema.",
+        "type": "string"
+      },
+      "tags": {
+        "description": "List of tags associated with the project.",
+        "type": "array",
+        "items": {
+          "description": "An individual tag. Must be an ID from the 'Tags' schema.",
+          "type": "string"
+        }
+      },
+      "cncf": {
+        "description": "CNCF-specific information about the project (if the project is related to CNCF).",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "description": "Relation of the project with CNCF. May be either 'landscape' (project is not hosted by CNCF but included in the CNCF Landscape), or 'sandbox, 'incubating', or 'graduated' (project is hosted by CNCF and in the Sandbox, Incubating, or Graduated stage, respectively).",
+            "type": "string",
+            "enum": ["landscape", "sandbox", "incubating", "graduated"]
+          },
+          "name": {
+            "description": "Canonical name of the project in the CNCF Landscape. This is used to match the project with the data in the CNCF Landscape, for example, for the automatic extraction of information such as URLs or logos. This should only be set if the canonical name in the CNCF Landscape is different from the canonical name set at the top level of a project definition.",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "required": [
+      "name",
+      "description",
+      "tags"
+    ]
+  }
+}

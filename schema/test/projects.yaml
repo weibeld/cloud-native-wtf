@@ -1,0 +1,9 @@
+- name: Kubernetes
+  description: Container orchestration system.
+  website: https://kubernetes.io/
+  github: https://github.com/kubernetes/kubernetes
+  tags:
+    - container-orchestration
+    - kubernetes-native
+  cncf:
+    relation: graduated
