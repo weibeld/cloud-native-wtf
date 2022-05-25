@@ -15,3 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: ajv --spec draft2020 -s schema/tags.json -d schema/test/tags.yaml
+  organisation:
+    name: Organisations
+    runs-on: ubuntu-latest
+    container: weibeld/ajv-cli:5.0.0
+    steps:
+      - uses: actions/checkout@v3
+      - run: ajv --spec draft2020 -s schema/orgs.json -d schema/test/orgs.yaml
