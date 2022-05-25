@@ -1,0 +1,5 @@
+- name: Kubernetes native
+  description: Projects that expect to be run on Kubernetes.
+- name: Container orchestration
+  description: Container orchestration systems.
+  

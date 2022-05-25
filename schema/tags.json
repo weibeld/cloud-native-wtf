@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tags Schema",
+  "description": "List of tags.",
+  "type": "array",
+  "uniqueItems": true,
+  "items": {
+    "description": "An individual tag.",
+    "type": "object",
+    "properties": {
+      "name": {
+        "description": "Name of the tag. This is used to derive the tag ID by lowercasing letters and replacing spaces by dashes.",
+        "type": "string"
+      },
+      "description": {
+        "description": "Description of the tag.",
+        "type": "string"
+      }
+    },
+    "required": [ "name", "description" ]
+  }
+}
