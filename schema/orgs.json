@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Orgs Schema",
+  "description": "List of organisations.",
+  "type": "array",
+  "uniqueItems": true,
+  "items": {
+    "description": "An individual organisation.",
+    "type": "object",
+    "properties": {
+      "name": {
+        "description": "Name of the organisation. This is used to derive the organisation ID by lowercasing letters and replacing spaces by dashes.",
+        "type": "string"
+      },
+      "shortname": {
+        "description": "Acronym or abbreviation that the organisation is also known of.",
+        "type": "string"
+      },
+      "longname": {
+        "description": "Full name of the organisation, if the canonical name is an acronym or abbreviation.",
+        "type": "string"
+      },
+      "website": {
+        "description": "URL of the main website of the organisation.",
+        "type": "string"
+      }
+    },
+    "required": [ "name" ]
+  }
+}
