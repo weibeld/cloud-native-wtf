@@ -62,14 +62,12 @@
           "name": {
             "description": "Canonical name of the project in the CNCF Landscape. This is used to match the project with the data in the CNCF Landscape, for example, for the automatic extraction of information such as URLs or logos. This should only be set if the canonical name in the CNCF Landscape is different from the canonical name set at the top level of a project definition.",
             "type": "string"
-          }
+          },
+          "additionalProperties": false
         }
       }
     },
-    "required": [
-      "name",
-      "description",
-      "tags"
-    ]
+    "required": [ "name", "description", "tags" ],
+    "additionalProperties": false
   }
 }
