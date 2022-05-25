@@ -7,18 +7,18 @@ jobs:
     container: weibeld/ajv-cli:5.0.0
     steps:
       - uses: actions/checkout@v3
-      - run: ajv --spec draft2020 -s schema/projects.json -d schema/test/projects.yaml
+      - run: ajv --spec draft2020 -c ajv-formats -s schema/projects.json -d schema/test/projects.yaml
   tags:
     name: Tags
     runs-on: ubuntu-latest
     container: weibeld/ajv-cli:5.0.0
     steps:
       - uses: actions/checkout@v3
-      - run: ajv --spec draft2020 -s schema/tags.json -d schema/test/tags.yaml
+      - run: ajv --spec draft2020 -c ajv-formats -s schema/tags.json -d schema/test/tags.yaml
   organisation:
     name: Organisations
     runs-on: ubuntu-latest
     container: weibeld/ajv-cli:5.0.0
     steps:
       - uses: actions/checkout@v3
-      - run: ajv --spec draft2020 -s schema/orgs.json -d schema/test/orgs.yaml
+      - run: ajv --spec draft2020 -c ajv-formats -s schema/orgs.json -d schema/test/orgs.yaml

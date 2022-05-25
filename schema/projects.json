@@ -26,11 +26,13 @@
       },
       "website": {
         "description": "URL of the main website of the project.",
-        "type": "string"
+        "type": "string",
+        "format": "uri"
       },
       "github": {
         "description": "URL of the GitHub repository (or organisation page) of the project (assumes that all projects are on GitHub).",
-        "type": "string"
+        "type": "string",
+        "format": "uri"
       },
       "hosted-by": {
         "description": "Organisation that currently hosts the project. Must be an ID from the 'Orgs' schema. For CNCF-hosted projects, this does not need to be set, as the fact of CNCF hostig is recorded in the 'cncf' object.",

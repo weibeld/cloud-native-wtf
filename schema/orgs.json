@@ -22,7 +22,8 @@
       },
       "website": {
         "description": "URL of the main website of the organisation.",
-        "type": "string"
+        "type": "string",
+        "format": "uri"
       }
     },
     "required": [ "name" ]
