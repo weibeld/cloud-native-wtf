@@ -1,0 +1,12 @@
+- name: Kubernetes ingress
+  description: The project can be used as a [Kubernetes ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) (common entrypoint for traffic getting into a Kubernetes cluster, allowing routing of traffic to different backend services in the cluster).
+- name: Kubernetes-specific
+  description: The project is specifically made for Kubernetes (i.e. it can't be used in a different context).
+- name: Load balancing
+  description: The project can be used for [load balancing](https://www.nginx.com/resources/glossary/load-balancing/) (distribution of incoming traffic to identical replicated backend services).
+- name: API gateway
+  description: The project can be used as an [API gateway](https://www.redhat.com/en/topics/api/what-does-an-api-gateway-do) (common entrypoint for APIs implementing key functions, such as authn/authz, rate limiting, monitoring, etc.).
+- name: Service mesh
+  description: The project can be used as a [service mesh](https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh) (mesh of proxies that intercept traffic to and from interrelated services and perform key functions such as security, observability, and traffic control).
+- name: Interconnectivity
+  description: Tools that facilitate network connections between different domains, such as Kubernetes clusters, VM clusters, or on-premises data centres.
