@@ -1,0 +1,16 @@
+- name: VMware
+  website: https://www.vmware.com/
+- name: Canonical
+  website: https://canonical.com/
+- name: Hashicorp
+  website: https://www.hashicorp.com/
+- name: Docker
+  website: https://www.docker.com/
+- name: Cloud Foundry
+  website: https://www.cloudfoundry.org/
+- name: Apache
+  website: https://apache.org/
+- name: Netflix
+  website: https://netflix.github.io/
+- name: Zalando
+  website: https://opensource.zalando.com/
