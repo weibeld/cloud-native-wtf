@@ -21,4 +21,4 @@ jobs:
     container: weibeld/ajv-cli:5.0.0
     steps:
       - uses: actions/checkout@v3
-      - run: ajv --spec draft2020 -c ajv-formats -s schema/orgs.json -d schema/test/orgs.yaml
+      - run: ajv --spec draft2020 -c ajv-formats -s schema/organisations.json -d schema/test/organisations.yaml
