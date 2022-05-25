@@ -1,0 +1,10 @@
+name: Validate YAML files
+on: [push]
+jobs:
+  projects:
+    name: Projects
+    runs-on: ubuntu-latest
+    container: weibeld/ajv-cli:5.0.0
+    steps:
+      - uses: actions/checkout@v3
+      - run: ajv --spec draft2020 -s schema/projects.json -d schema/test/projects.yaml
