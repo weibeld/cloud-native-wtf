@@ -1,24 +1,10 @@
 name: Validate YAML files
 on: [push]
 jobs:
-  projects:
-    name: Projects
+  schema:
+    name: Schema
     runs-on: ubuntu-latest
     container: weibeld/ajv-cli:5.0.0
     steps:
       - uses: actions/checkout@v3
-      - run: ajv --spec draft2020 -c ajv-formats -s schema/projects.json -d projects.yaml
-  tags:
-    name: Tags
-    runs-on: ubuntu-latest
-    container: weibeld/ajv-cli:5.0.0
-    steps:
-      - uses: actions/checkout@v3
-      - run: ajv --spec draft2020 -c ajv-formats -s schema/tags.json -d tags.yaml
-  organisation:
-    name: Organisations
-    runs-on: ubuntu-latest
-    container: weibeld/ajv-cli:5.0.0
-    steps:
-      - uses: actions/checkout@v3
-      - run: ajv --spec draft2020 -c ajv-formats -s schema/organisations.json -d organisations.yaml
+      - run: scripts/validate-schema.sh
