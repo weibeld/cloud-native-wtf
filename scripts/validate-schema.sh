@@ -12,7 +12,7 @@
 . scripts/_commons.sh
 unset failed
 
-for f in "${FILES[@]}"; do
+files | while read f; do
   ajv --spec draft2020 -c ajv-formats -s schema/"${f%.*}".json -d "$f" || failed=1
 done
 

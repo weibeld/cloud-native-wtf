@@ -22,13 +22,11 @@ normalise() {
   tr '[:upper:]' '[:lower:]' | tr -d '[:blank:][:punct:]'
 }
 
-for f in "${FILES[@]}"; do
+files | while read f; do
   duplicates=$(cat "$f" | yq '.[].name' | normalise | sort | uniq -d) 
   if [[ -z "$duplicates" ]]; then
     echo "$f valid"
   else
-    # Use 'printf' instead of 'echo -e', 'echo -n', etc. because these options
-    # are not supported in all environmets (e.g. in sh on macOS).
     printf "$f invalid\n$(colour_red)Duplicates:\n$duplicates$(colour_reset)\n"
     failed=1
   fi

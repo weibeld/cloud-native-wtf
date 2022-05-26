@@ -1,7 +1,9 @@
 # Common utilities to be sourced in every script.
 
-# The data files to process
-FILES=(projects.yaml organisations.yaml tags.yaml)
+# The data files to process (relative to the repo root directory)
+files() {
+  printf "projects.yaml\norganisations.yaml\ntags.yaml\n"
+}
 
 # Coloured output
 colour_red() { printf '\e[31m'; }
