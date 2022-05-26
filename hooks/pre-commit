@@ -1,0 +1,17 @@
+#!/bin/bash
+# Validate the data files in the same way as it's done on GitHub Actions. The
+# script runs all checks to completion and then exits with a non-zero exit code
+# if any of them failed (as opposed to exiting on the first failing check). This
+# simulates the parallel execution of jobs in GitHub Actions and ensures that
+# all failing checks are seen in a single pass, if there are multiple ones.
+
+echo "PRE-COMMIT HOOK"
+
+# Will be set if any check fails
+unset failed
+
+echo "==> Running schema validation..."
+scripts/validate-schema.sh >/dev/null && echo OK || failed=1
+
+# Abort the commit if any of the checks failed
+[[ -z "$failed" ]] && exit 0 || exit 1
