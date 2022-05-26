@@ -1,0 +1,97 @@
+- name: Amazon Web Services
+  shortname: AWS
+  website: https://aws.amazon.com/
+  description: ""
+  tags:
+    - cloud-provider
+- name: Google Cloud Platform
+  shortname: GCP
+  website: https://cloud.google.com/
+  description: ""
+  tags:
+    - cloud-provider
+- name: Microsoft Azure
+  website: https://azure.microsoft.com/
+  description: ""
+  tags:
+    - cloud-provider
+- name: IBM Cloud
+  website: https://www.ibm.com/cloud
+  description: ""
+  tags:
+    - cloud-provider
+- name: Oracle Cloud Infrastructure
+  shortname: OCI
+  website: https://www.oracle.com/cloud/
+  description: ""
+  tags:
+    - cloud-provider
+- name: DigitalOcean
+  website: https://www.digitalocean.com/
+  description: ""
+  tags:
+    - cloud-provider
+- name: Linode
+  website: https://www.linode.com/
+  description: ""
+  tags:
+    - cloud-provider
+- name: Alibaba Cloud
+  website: https://www.alibabacloud.com/
+  description: ""
+  tags:
+    - cloud-provider
+    - chinese
+- name: Tencent Cloud
+  website: https://cloud.tencent.com/
+  description: ""
+  tags:
+    - cloud-provider
+    - chinese
+- name: Huawei Cloud
+  website: https://www.huaweicloud.com/intl/en-us/
+  description: ""
+  tags:
+    - cloud-provider
+    - chinese
+- name: ESXi
+  website: https://www.vmware.com/hk/products/esxi-and-esx.html
+  hosted-by: vmware
+  description: Type 1 hypervisor (hypervisor that directly runs on the hardware, as opposed to a type 2 hypervisor that runs on an existing operating system).
+  tags:
+    - hypervisor
+    - virtualisation
+- name: Xen
+  website: https://xenproject.org/
+  description: Type 1 hypervisor (hypervisor that directly runs on the hardware, as opposed to a type 2 hypervisor that runs on an existing operating system).
+  tags:
+    - hypervisor
+    - virtualisation
+- name: Hyper-V
+  website: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/
+  description: Type 1 hypervisor (hypervisor that directly runs on the hardware, as opposed to a type 2 hypervisor that runs on an existing operating system).
+  hosted-by: Windows
+  tags:
+    - hypervisor
+    - virtualisation
+- name: KVM
+  longname: Kernel-based Virtual Machine
+  website: https://www.linux-kvm.org/page/Main_Page
+  description: Allows turning the Linux kernel into a hypervisor.
+  tags:
+    - hypervisor
+    - virtualisation
+- name: VirtualBox
+  website: https://www.virtualbox.org/
+  description: Type 2 hypervisor (hypervisor running on an existing general-purpose operating system, as opposed to a type 1 hypervisor that directly runs on the hardware).
+  hosted-by: oracle
+  tags:
+    - hypervisor
+    - virtualisation
+- name: Vagrant
+  website: https://www.vagrantup.com/
+  hosted-by: hashicorp
+  description: Manager for defining, configuring, and running virtual machines. Works with various hypervisors.
+  tags:
+    - virtualisation
+    - orchestration-tool
