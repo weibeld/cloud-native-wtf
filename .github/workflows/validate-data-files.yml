@@ -1,8 +1,8 @@
 name: Validate data files
 on: [push]
 jobs:
-  schema:
-    name: Schema
+  schemas:
+    name: Schemas
     runs-on: ubuntu-latest
     container: weibeld/ajv-cli:5.0.0
     steps:
