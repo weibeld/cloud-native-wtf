@@ -10,10 +10,10 @@
 # [2] https://www.npmjs.com/package/ajv-formats
 
 . scripts/_commons.sh
-unset failed
+failed=$(mktemp)
 
 files | while read f; do
-  ajv --spec draft2020 -c ajv-formats -s schema/"${f%.*}".json -d "$f" || failed=1
+  ajv --spec draft2020 -c ajv-formats -s schema/"${f%.*}".json -d "$f" || echo 1 >"$failed"
 done
 
-[[ -z "$failed" ]] && exit 0 || exit 1
+[[ -s "$failed" ]] && exit 1 || exit 0

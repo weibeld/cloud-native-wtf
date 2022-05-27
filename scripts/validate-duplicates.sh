@@ -15,7 +15,7 @@
 # [1] https://github.com/mikefarah/yq
 
 . scripts/_commons.sh
-unset failed
+failed=$(mktemp)
 
 # Normalisation of names as per the above definition.
 normalise() {
@@ -23,13 +23,13 @@ normalise() {
 }
 
 files | while read f; do
-  duplicates=$(cat "$f" | yq '.[].name' | normalise | sort | uniq -d) 
+  duplicates=$(cat "$f" | yq '.[].name' | normalise | sort | uniq -d || echo 1 >"$failed") 
   if [[ -z "$duplicates" ]]; then
     echo "$f valid"
   else
     printf "$f invalid\n$(colour_red)Duplicates:\n$duplicates$(colour_reset)\n"
-    failed=1
+    echo 1 >"$failed"
   fi
 done
 
-[[ -z "$failed" ]] && exit 0 || exit 1
+[[ -s "$failed" ]] && exit 1 || exit 0
