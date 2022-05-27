@@ -1,4 +1,4 @@
-name: Validate YAML files
+name: Validate data files
 on: [push]
 jobs:
   schema:
