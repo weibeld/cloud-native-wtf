@@ -1,0 +1,15 @@
+name: Validate data files
+on: [push]
+jobs:
+  schemas:
+    name: Schemas
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: scripts/validate-schemas.sh
+  duplicates:
+    name: Duplicates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: scripts/validate-duplicates.sh

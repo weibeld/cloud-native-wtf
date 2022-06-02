@@ -1,25 +1,25 @@
 # Git hooks
 
-This folder contains optional [Git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) that may be installed in a local clone of the repository.
+This directory contains optional [Git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) that may be installed in a local clone of the repository.
 
 ## Installation
 
-To install a hook, simply create a symlink to the hook file in the `.git/hooks` directory.
+To install a hook, create a symlink in the `.git/hooks` directory pointing to the desired hook file.
 
-For example, execute the following from the root directory of the repository to install the pre-commit hook:
+For example:
 
 ```bash
 ln -s ../../hooks/pre-commit .git/hooks/pre-commit
 ```
 
-> **Note:** the first argument to `ln` is the **target** of the link and the second argument is the **link** that you want to create. The path of the target must either be absolute or relative to the location of the link that is being created. For this reason, the target path in the above example is prefixed with `../..` because the link is created in `.git/hooks`, that means, two levels down from the root directory of the repository.
+The above creates the symlink `.git/hooks/pre-commit` pointing to the [`pre-commit`](pre-commit) hook file. This effectively installs and enables the pre-commit hook.
+
+> **Important:** the path for the first argument of `ln` (the target of the symlink) must be relative to the location of the created link and **not** relative to the current working directory from which the command is executed.
 
 ## Hooks
 
 ### pre-commit
 
-The pre-commit hook runs immediately after running `git commit` (before the editor for typing a commit message appears). If the hook script exits with a n non-zero exit code, the commit is aborted.
+> A pre-commit hook runs after running `git commit` and before the editor window for typing a commit message occurs. If this hook exits with a non-zero exit code, the commit is aborted. The execution of the pre-commit hook can be disabled for individual commits with the `-n` or `--no-verify` flags.
 
-The provided pre-commit hook runs all the YAML file validations that are also run by the [_Validate YAML files_](../.github/workflows/validate-yaml-files.yml) GitHub Actions workflow. This has the advantage that errors are detected and fixed before anything is pushed to GitHub which results in fewer failed GitHub Actions runs and a less polluted Git commit history.
-
-To bypass the execution of the pre-commit hook for individual commits, add the `-n` or `--no-verify` options to the `git commit` command.
+The provided [`pre-commit`](pre-commit) hook performs the same operations as the [`validate`](../.github/workflows/validate.yml) GitHub Actions workflow. This allows detecting errors before committing and pushing, thus accelerating the feedback cycle, and also keeping the Git history clean.

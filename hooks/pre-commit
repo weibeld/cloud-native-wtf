@@ -1,25 +1,29 @@
 #!/bin/bash
 #
-# Validate the data files in the same way as it's done on GitHub Actions.
+# Simulates the 'validate' GitHub Actions workflow (validating the YAML data
+# files for syntactic and semantic correctness) by running the scripts in the
+# 'scripts' directory.
 #
-# The hook runs all checks to completion even if one of them fails (as opposed
-# to exiting on the first failed check). This mirrors the parallel execution of
-# jobs in GitHub Actions and ensures that all failing checks are seen at once.
+# The parallel execution of jobs in GitHub Actions is simulated by running the
+# validations sequentially, but always running all of them, even if one fails.
+# This allows to see all failed validations in a single run.
 #
-# Each script may have specific dependencies (such as installed packages), which
-# are declared in the main comment of the script. These dependecies must be
-# satisfied for the hook to succeed.
+# Since all scripts in 'scripts' run in Docker containers, the only dependency
+# for this pre-commit hook is Docker being installed on the local system.
 
-echo "PRE-COMMIT HOOK"
+echo "Running pre-commit hook..."
 
-# Will be set if any check fails
-unset failed
+failed=$(mktemp)
 
-echo "==> Running schema validation..."
-scripts/validate-schema.sh >/dev/null && echo OK || failed=1
+echo "==> Validating schemas..."
+scripts/validate-schemas.sh >/dev/null || echo 1 >"$failed"
 
-echo "==> Running duplication validation..."
-scripts/validate-duplicates.sh >/dev/null && echo OK || failed=1
+echo "==> Validating duplicates..."
+scripts/validate-duplicates.sh >/dev/null || echo 1 >"$failed"
 
-# Abort the commit if any of the checks failed
-[[ -z "$failed" ]] && exit 0 || exit 1
+if [[ -s "$failed" ]]; then
+  echo "Aborting commit due to failed pre-commit hook."
+  exit 1
+else
+  exit 0
+fi

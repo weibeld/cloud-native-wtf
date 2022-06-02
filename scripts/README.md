@@ -1,24 +1,30 @@
 # Scripts
 
-The sripts in this directory perform validations on the data files in the root directory of the repo. They are invoked from the [_Validate YAML files_](../.github/workflows/validate-yaml-files.yml) GitHub Action workflow as well as from the [pre-commit](../hooks/pre-commit) hook.
+This directory contains scripts that are executed by the GitHub Actions workflows defined in [`.github/workflows`](../.github/workflows).
 
-## Development notes
+## Contract
 
-1. Scripts should exit with a non-zero exit code if any validation fails, and with a zero exit code otherwise.
-1. Scripts should always run all validations to completion and only then exit (with a possibly non-zero exit code), as opposed to exiting on the first failed validation. This allows seeing all errors in a single pass.
-1. Scripts must be executed from the root directory of the repository and may thus assume that their current working directory is the root directory.
-1. Each script may have specific dependencies which should be declared in its leading comment.
-1. The [`_commons.sh`](_commons.sh) file contains utilities (such as shell functions) that are used by multiple scripts. This file must be sourced by each script that wants to make use of it.
+The scripts in this directory must satisfy the following contract:
 
-## Portability considerations
+- When the operation implemented by a script fails, the script must exit with a non-zero exit code, otherwise, it must exit with a zero exit code.
+- If a script performs the same operation on multiple objects in a loop (e.g. files), the script should always perform the operation on all objects before exiting (even if the operation fails on some of the objects), rather than exiting on the first failed operation.
+  - This allows the user to see all errors in a single run of the workflow, rather than incrementally discovering them through multiple workflow runs.
+- The script must write normal output to `stdout` and error messages to `stderr`.
+- Each script must run in a container. When a script is started, it must check whether it is running in a container, and if not, it must start this container and launch itself in this container.
+  - This is implemented by the `ensure_container` function in the [`util.sh`](util.sh) file (see below).
+- Each script must be executed from the root directory of the repository. If a script is executed from a different directory, it should fail.
+- Each script may source the [`util.sh`](util.sh) file, which contains utilities that are used by multiple scripts.
 
-The scripts may be run in very different environments, such as:
+## Notes
 
-- On a personal workstation using Linux or macOS (if invoked from the pre-commit hook).
-- In a container with a possibly very stripped down environment such as [Alpine](https://www.alpinelinux.org/) or [BusyBox](https://busybox.net/) (if invoked from GitHub Actions).
+### Non-container execution
 
-To make the scripts as portable as possible, make sure that they adhere the following restrictions:
+A script using the `ensure_container` function of [`util.sh`](util.sh) may be executed directly on the host system (i.e. not in a container) as follows:
 
-1. Run on sh rather than Bash (i.e. use `#!/bin/sh` rather than `!#/bin/bash`) since Bash is not available in environments such as Alpine or Busybox.
-1. Avoid `echo -e`, `echo -n`, etc. since these options are not supported in some environments (e.g. in sh on macOS). Use `printf` instead.
-1. Avoid using shell arrays since they are not supported by sh.
+```bash
+OS_ENV=container scripts/script.sh
+```
+
+This tricks the script into believing that it is running in a container. This works because the `ensure_container` function sets the `OS_ENV=container` variable when starting a container, and at the beginning of the execution it checks this variable to detect whether it is running in a container or not.
+
+However, when doing this, all the dependencies of the script must be installed on the host system, and, in general, the script may behave differently than when run in its container.
