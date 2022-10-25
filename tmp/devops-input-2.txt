@@ -1,0 +1,56 @@
+# DevOps Tools
+
+According to the "Golden Triangle of DevOps".
+
+## Platform
+
+> Note: most tools in this part are from the [Cloud Native Landscape](https://landscape.cncf.io/). The categories are also, with slight changes, based on the [categories](https://landscape.cncf.io/guide).
+
+- Kubernetes distributions
+
+- Kubernetes installers
+  - Airship
+
+- Kubernetes extensions
+  - Akri, Operator Framework, Kiosk
+  - Chinese projects: KubeEdge
+
+- Kubernetes application definition
+  - CDK8s
+
+- Container runtime
+  - OCI, CRI, Docker, containerd, CRI-O, runc, Kata Containers, Podman, Apptainer (formerly Singularity), Sysbox, Firecracker
+  - Chinese projects: Inclavare
+
+- Container storage
+  - CSI, Ceph, Rook, Longhorn, OpenEBS, GlusterFS, CubeFS, MooseFS, Piraeus
+  - Chinese projects: Carina, SODA
+
+- Container networking
+  - CNI, Cilium, Antrea, DANM, Flannel, Kilo, kube-router, Multus CNI, Calico, Tungsten Fabric, Weave Net, Submariner (on top of CNI plugin), Network Service Mesh (on top of CNI plugin)
+  - Chinese projects: FabEdge, Kube-OVN
+
+- Application storage
+  - MinIO, OpenIO
+
+- Backup and restore
+  - Velero, K8up, Kasten K10, Metallic, LINSTOR, Stash
+
+- Secrets management
+
+- AuthN/AuthZ
+
+- Security
+  - gVisor
+
+- Compliance
+
+- Service discovery
+
+- Service mesh
+
+- Proxy
+
+- Observability
+
+## Automation

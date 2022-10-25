@@ -1,0 +1,483 @@
+infrastructure:
+  - name: Data centre
+    notes: Tools for managing an on-premises data centre (typically managing VMs ore bare metal servers).
+    projects:
+      - name: OpenStack
+        website: https://www.openstack.org/
+        cncf:
+          landscape: true
+      - name: MAAS
+        longname: Metal as a Service
+        website: https://maas.io/
+        notes: Installs operating systems on bare metal servers.
+        organisation: canonical
+        cncf:
+          landscape: true
+      - name: LXD
+        website: https://linuxcontainers.org/lxd/
+        github: https://github.com/lxc/lxd
+        notes: Manager for VMs and system containers (containers simulating a full operating system).
+        organisation: canonical
+        cncf:
+          landscape: true
+      - name: vSphere
+        website: https://www.vmware.com/products/vsphere.html
+        notes: VM manager including support for containers and Kubernetes.
+        organisation: vmware
+        cncf:
+          landscape: true
+      - name: OpenNebula
+        notes: Allows building cloud-like platforms by managing VMs, includes support for Kubernetes and containers.
+        cncf:
+          landscape: true
+  - name: Operating systems and VMs
+    notes: Tools for creating and customising operating systems and VMs
+    projects:
+      - name: LinuxKit
+        website: https://github.com/linuxkit/linuxkit
+        github: https://github.com/linuxkit/linuxkit
+        notes: Toolkit for building Linux distributions optimised for running containers, released by Docker as the common denominator of Docker for Mac, Docker for Windows, etc.
+        organisation: docker
+        cncf:
+          landscape: true
+      - name: Packer
+        website: https://www.packer.io/
+        github: https://github.com/hashicorp/packer
+        cncf:
+          landscape: true
+  - name: Cloud management
+    notes: TEMPORARY tools helping to manage cloud accounts
+    projects:
+      - name: Cloud Custodian
+        website: https://cloudcustodian.io/
+        github: https://github.com/cloud-custodian/cloud-custodian
+        notes: Enforcing rules in cloud accounts, including security policies, tag policies, garbage collection, and cost management.
+        cncf:
+          landscape: true
+  - name: Infrastructure as Code (IaC)
+    projects:
+      - name: Terraform
+        website: https://www.terraform.io/
+        github: https://github.com/hashicorp/terraform
+        organisation: hashicorp
+        cncf:
+          landscape: true
+      - name: Pulumi
+        website: https://www.pulumi.com/
+        github: https://github.com/pulumi/pulumi
+        cncf:
+          landscape: true
+  - name: Configuration Management (CM)
+    projects:
+      - name: Ansible
+        website: https://www.ansible.com/
+        github: https://github.com/ansible/ansible
+        notes: No daemons, communication with managed hosts over SSH, order of magnitude slower than all other CM systems. Written in Python, released in 2012.
+        cncf:
+          landscape: true
+      - name: Salt
+        website: https://saltproject.io/
+        github: https://github.com/saltstack/salt
+        notes: Simple and flexible. Written in Python, released in 2011.
+        cncf:
+          landscape: true
+          landscape-id: saltstack
+      - name: Puppet
+        website: https://puppet.com/
+        github: https://github.com/puppetlabs/puppet
+        notes: Oldest of the modern CM systems (Puppet, Chef, Salt, Ansible), idiosyncratic configuration language (based on Ruby code). Written in Ruby, released in 2005.
+        cncf:
+          landscape: true
+      - name: Chef
+        website: https://www.chef.io/
+        github: https://www.crunchbase.com/organization/chef
+        notes: Intended for very large deployments (hundreds or thousands of machines), configuration language based on Ruby code. Written in Ruby, released in 2009.
+        cncf:
+          landscape: true
+      - name: CFEngine
+        website: https://cfengine.com/
+        github: https://github.com/cfengine/core
+        notes: Oldest CM system. Written in C, released in 1993.
+        cncf:
+          landscape: true
+    chinese-projects:
+      - name: Apollo
+        website: https://www.apolloconfig.com/
+        github: https://github.com/apolloconfig/apollo
+        cncf:
+          landscape: true
+  - name: Management frontends
+    notes: Tools that provide a common user interface for managing servers, VMs, containers, and other infrastructure and applications.
+    projects:
+      - name: Foreman
+        website: https://theforeman.org/
+        github: https://github.com/theforeman/foreman
+        notes: Server lifecycle management platform, includes provisioning of cloud instances, configuration management (plugins for Puppet, Chef, Salt, and Ansible), and monitoring, provides a web frontend, REST API, and CLI.
+        cncf:
+          landscape: true
+      - name: ManageIQ
+        website: https://www.manageiq.org/
+        github: https://github.com/ManageIQ/manageiq
+        notes: Provisioning of cloud instances, deployment of VM images, application deployment. Provides web frontend and REST API.
+        cncf:
+          landscape: true
+platform:
+  - name: Scheduling and Orchestration
+    projects:
+      - name: Kubernetes
+        website: https://kubernetes.io/
+        github: https://github.com/kubernetes/kubernetes
+        cncf:
+          landscape: true
+      - name: Mesos
+        website: https://mesos.apache.org/
+        github: https://www.crunchbase.com/organization/apache
+        organisation: apache
+        cncf:
+          landscape: true
+          landscape-id: apache mesos
+      - name: Nomad
+        website: https://www.nomadproject.io/
+        github: https://github.com/hashicorp/nomad
+        cncf:
+          landscape: true
+      - name: Docker Swarm
+        website: https://docs.docker.com/engine/swarm/
+        github: https://github.com/moby/swarmkit
+        cncf:
+          landscape: true
+  - name: Deployment automation
+    notes: Tools that assist in deploying software on a distributed infrastructure.
+    projects:
+      - name: BOSH
+        website: https://bosh.io/
+        github: https://github.com/cloudfoundry/bosh
+        organisation: cloudfoundry
+  - name: Container runtime
+    projects:
+      - name: Firecracker
+        website: https://firecracker-microvm.github.io/
+        github: https://github.com/firecracker-microvm/firecracker
+        notes: Lightweight VMs intended to be used like containers. Can be used to run containers in Kubernetes with CRI-O and Kata Containers.
+        cncf:
+          landscape: true
+  - name: Kubernetes extensions (add-ons)
+    notes: Tools that run on top of Kubernetes extending the functionality of the Kubernetes cluster.
+    projects:
+      - name: Metal³
+        website: https://metal3.io/
+        notes: Automatic provisioning of bare metal nodes of a Kubernetes cluster through CRDs on the Kubernetes cluster itself.
+        cncf:
+          landscape: true
+          landscape-id: metal3-io
+      - name: Juju
+        website: https://juju.is/
+        github: https://github.com/juju/juju
+        notes: Operator Lifecycle Manager (OLM), presumably can also be run outside of Kubernetes to apply the operator pattern on non-Kubernetes infrastructure.
+        cncf:
+          landscape: true
+      - name: Capsule
+        notes: Provides multi-tenancy support in a Kubernetes cluster, introduces Tenant abstraction defined as a related set of Namespaces.
+        cncf:
+          landscape: true
+      - name: Karmada
+        notes: Allows running applications across multiple Kubernetes clusters.
+        cncf:
+          landscape: true
+      - name: Crossplane
+        notes: Allows provisioning and management of infrastructure (e.g. public cloud resources) through Kubernetes CRDs. The created infrastructure is kept in sync through the Kubernetes control loop. Introducing the term "Infrastructure as Data" as a successor of "Infrastructure as Code".
+        cncf:
+          landscape: true
+      - name: K8GB
+        notes: Allows load balancing traffic across multiple (geographically dispersed) Kubernetes clusters.
+        cncf:
+          landscape: true
+      - name: Gimbal
+        website: null
+        github: https://github.com/projectcontour/gimbal
+        notes: Allows load-balancing traffic across multiple Kubernetes clusters and traditional infrastructure, such as OpenStack. Based on Contour (Kubernetes ingress controller).
+        cncf:
+          landscape: true
+      - name: MetalLB
+        notes: Provisioner for the LoadBalancer Kubernetes Service type for bare metal Kubernetes clusters.
+        cncf:
+          landscape: true
+    chinese-projects:
+      - name: Clusternet
+        notes: Application running in Kubernetes that allows to manage other Kubernetes clusters.
+        cncf:
+          landscape: true
+      - name: Clusterpedia
+        notes: Search Kubernetes resources across multiple clusters.
+        cncf:
+          landscape: true
+      - name: Open Cluster Management
+        notes: Architecture and best practices for managing multiple Kubernetes clusters from a central control cluster.
+        cncf:
+          landscape: true
+      - name: OpenELB
+        notes: Provisioner for the LoadBalancer Kubernetes Service type for bare metal Kubernetes clusters. Equivalent of MetalLB.
+        cncf:
+          landscape: true
+  - name: Service discovery
+    notes: TEMPORARY
+    projects:
+      - name: CoreDNS
+        cncf:
+          landscape: true
+      - name: Consul
+        organisation: hashicorp
+        notes: Key-value store providing service discovery and configuration for microservices. Also includes sidecar proxies providing security, traffic shaping, and observability (driven by information from the key-value store), thus constituting a service mesh.
+        notes: Service discovery through central service registry (key-value store)
+        cncf:
+          landscape: true
+        tags:
+          - service-mesh
+    chinese-projects:
+      - name: Nacos
+        cncf:
+          landscape: true
+  - name: Data storage
+    notes: Tools for storing data.
+    projects:
+      - name: etcd
+        website: https://etcd.io/
+        github: https://github.com/etcd-io/etcd
+        notes: Key-value store including "watch for changes" functionality with notifications.
+        cncf:
+          landscape: true
+      - name: Zookeeper
+        notes: Key-value store.
+        organisation: apache
+        cncf:
+          landscape: true
+          landscape-id: apache zookeeper
+  - name: Kubernetes ingress controllers
+    projects:
+      - name: Contour
+        notes: Uses Envoy.
+        cncf:
+          landscape: true
+          #landscape-id: envoy
+          #hosted: true
+          #hosted-status: graduated
+  - name: Load balancing
+    projects:
+      - name: HAProxy
+        cncf:
+          landscape: true
+    chinese-projects:
+      - name: BFE
+        website: https://www.bfe-networks.net/en_us/
+        github: https://github.com/bfenetworks/bfe
+        notes: Layer 7 load balancer.
+        cncf:
+          landscape: true
+  - name: API gateways
+    projects:
+      - name: Emissary-ingress
+        longname: formerly Ambassador API Gateway
+        website: https://www.getambassador.io/products/api-gateway/
+        github: https://github.com/emissary-ingress/emissary
+        notes: API gateway that can act as a Kubernetes ingress controller, controlled via Kubernetes CRDs, based on Envoy. Formerly known as Ambassador API Gateway.
+        cncf:
+          landscape: true
+        tags:
+          - kubernetes-ingress-controller
+          - kubernetes-native
+      - name: APISIX
+        notes: High performance API gateway, can be used as a Kubernetes ingress controller.
+        organisation: apache
+        cncf:
+          landscape: true
+        tags:
+          - kubernetes-ingress-controller
+      - name: Gloo
+        longname: Gloo Edge
+        website: https://www.solo.io/products/gloo-edge/
+        github: https://github.com/solo-io/gloo
+        notes: Kubernetes native API gateway based on Envoy. Controlled with CRDs, can also function as a Kubernetes ingress controller.
+        cncf:
+          landscape: true
+        tags:
+          - kubernetes-ingress-controller
+          - kubernetes-native
+      - name: Gravitee
+        notes: API management platform providing access control and observability.
+        cncf:
+          landscape: true
+          landscape-id: gravitee.io
+      - name: Kong
+        notes: API gateway that can act as a Kubernetes ingres controller.
+        cncf:
+          landscape: true
+        tags:
+          - kubernetes-ingress-controller
+      - name: KrakenD
+        notes: API gateway built for performance, providing monitoring, security, throttling, load balancing, manipulation, filtering, etc.
+        cncf:
+          landscape: true
+      - name: Kusk
+        notes: Kubernetes native API gateway centred around OpenAPI declarations and based on Envoy.
+        cncf:
+          landscape: true
+          landscape-id: kusk gateway
+        tags:
+          - kubernetes-native
+      - name: Tyk
+        notes: API gateway supporting REST, GraphQL, and gRPC requests.
+        cncf:
+          landscape: true
+    chinese-projects:
+      - name: APIOAK
+        cncf:
+          landscape: true
+      - name: Easegress
+        cncf:
+          landscape: true
+      - name: Hango
+        cncf:
+          landscape: true
+  - name: Proxies
+    notes: General proxies (generalisation of load balancers, reverse proxies, API gateways, etc.)
+    projects:
+      - name: Envoy
+        cncf:
+          landscape: true
+      - name: Caddy
+        cncf:
+          landscape: true
+      - name: Inlets
+        website: https://inlets.dev/
+        github: https://github.com/inlets/inlets-pro
+        notes: Client-server application for exposing services from any type of network. Inlets client runs on the host providing the service and Inlets server runs on a public machine. The service is accessed through the Inlets server on the public machine.
+        cncf:
+          landscape: true
+      - name: Zuul
+        website: null
+        github: https://github.com/Netflix/zuul
+        organisation: netflix
+        notes: "General-purpose layer 7 proxy providing routing, monitoring, security, etc. TODO: use logo from Github README."
+        cncf:
+          landscape: true
+          landscape-id: netflix zuul
+      - name: NGINX
+        cncf:
+          landscape: true
+        tags:
+          - kubernetes-ingress-controller
+      - name: Skipper
+        notes: HTTP reverse proxy, can be used as a Kubernetes ingress controller.
+        organisation: zalando
+        cncf:
+          landscape: true
+        tags:
+          - kubernetes-ingress-controller
+      - name: Traefik
+        notes: Reverse proxy and load balancer that can route traffic into various infrastructures (Kubernetes, Mesos, Docker Swarm). Can be used as a Kubernetes ingress controller.
+        cncf:
+          landscape: true
+        tags:
+          - kubernetes-ingress-controller
+    chinese-projects:
+      - name: MOSN
+        longname: Modular Open Smart Network
+        website: https://mosn.io/en/
+        cncf:
+          landscape: true
+      - name: Tengine
+        notes: Webserver based on NGINX.
+        cncf:
+          landscape: true
+      - name: Sentinel
+        website: https://sentinelguard.io/en-us/
+        github: https://github.com/alibaba/Sentinel
+        notes: Proxy providing flow control, traffic shaping, circuit breaking and system adaptive protection.
+        cncf:
+          landscape: true
+  - name: Service mesh
+    projects:
+      - name: Linkerd
+        cncf:
+          landscape: true
+        tags:
+          - kubernetes-native
+      - name: Istio
+        cncf:
+          landscape: true
+      - name: Gloo Mesh
+        website: https://www.solo.io/products/gloo-mesh/
+        github: https://github.com/solo-io/gloo-mesh
+        notes: Provides unified management plane for multiple service meshes.
+        cncf:
+          landscape: true
+      - name: Kuma
+        notes: Service mesh based on Envoy running on Kubernetes and VMs.
+        cncf:
+          landscape: true
+      - name: Meshery
+        notes: Frontend for managing multiple service meshes.
+        cncf:
+          landscape: true
+      - name: Open Service Mesh
+        shortname: OSM
+        notes: Kubernetes native service mesh implementing the Service Mesh Interface (SMI).
+        cncf:
+          landscape: true
+        tags:
+          - kubernetes-native
+      - name: Service Mesh Interface
+        shortname: SMI
+        notes: Specification of user-facing service mesh APIs (CRDs and extension API servers) for Kubernetes native service meshes.
+        cncf:
+          landscape: true
+        tags:
+          - kubernetes-native
+      - name: Service Mesh Performance
+        shortname: SMP
+        notes: Standard for describing service mesh characteristics and performance measurements. Implemented by Meshery.
+        cncf:
+          landscape: true
+      - name: Traefik Mesh
+        notes: Kubernetes-native service mesh with proxy running as a daemon on each node (as opposed to a sidecar container in each Kubernetes pod). Implements Service Mesh Interface (SMI).
+        cncf:
+          landscape: true
+        tags:
+          - kubernetes-native
+      - name: Network Service Mesh
+        shortname: NSM
+        github: https://github.com/networkservicemesh
+        notes: Provides layer 3 connectivity between workloads across runtime domains, such as Kubernetes clusters or on-premises data centres. Individual workloads of runtime domains can connect to each other without the need to expose the entire runtime domain. Decouples the connectivity domain from the runtime domain.
+        cncf:
+          landscape: true
+        tags:
+          - service-mesh
+          - interconnectivity
+    chinese-projects:
+      - name: Areaki Mesh
+        cncf:
+          landscape: true
+      - name: EaseMesh
+        notes: Service mesh for Spring Cloud.
+        cncf:
+          landscape: true
+#automation:
+
+
+#- name: Submariner
+#  notes: Connect workloads in different Kubernetes clusters, packet forwarding at kernel level, as opposed to application level, as e.g. in Istio, Linkerd. Uses a central broker.
+#  initiated-by: red-hat
+#  tags:
+#    - kubernetes-native
+#    - interconnectivity
+#
+- name: Keptn
+  website: https://www.keptn.sh/
+  github: https://github.com/keptn/keptn
+  description: Orchestrator for delivery workflows (integrates with Jenkins, Argo CD, Flux, Spinnaker, etc.) and auto-remediation workflows, i.e. self healing based on metrics and alerts (integrates with Prometheus, Datadog, etc.). Allows integrating load testing and chaos engineering for testing self-remediation workflows (integrates with load testing tools such as Artillery, JMeter, k6, NeoLoad and chaos engineering tools such as Litmus).
+  initiated-by: dynatrace
+  cncf:
+    relation: sandbox
+  tags:
+    - tool-orchestration (orchestration of existing tools)
+    - ci/cd

@@ -1,0 +1,92 @@
+Projects listed on the CNCF Landscape website
+
+Popular CNCF Member projects (i.e. projects that are not hosted by CNCF but by CNCF members):
+
+Ansible
+Consul
+Container Storage Interface (CSI)
+DANM
+Datadog
+Docker
+GitLab
+GitHub
+Gloo
+Gluster
+Grafana
+gVisor
+k0s
+Kaniko
+Kasten
+Keycloak
+Kiali
+Kind
+Kiosk
+Kong
+Kops
+KOTS
+Krustlet
+kube-bench
+kube-hunter
+kubecost
+Kubespray
+Kubic
+Kublr
+kURL
+Kusk Gateway
+Kyma
+MAAS
+lxd
+MetalK8s
+MicroK8s
+Minikube
+MinIO
+Multus
+Octant
+Calico
+Quay
+Rancher
+Testkube
+Traefik
+Trivy
+Velero
+Weave Net
+Werf
+
+Popular Non-CNCF Member projects:
+
+Apache Mesos
+Apache ZooKeeper
+Caddy
+Ceph
+CFEngine
+Chaos Toolkit
+chaoskube
+KubePlus
+Drone
+Flexkube
+Graphite
+Jenkins
+Jenkins X
+Kata Containers
+Keploy
+Kilo
+KrakenD
+kube-router
+Kubermatic
+KubeDB
+Kubefirst
+KubeMQ
+KubeOrbit
+k8s-tew
+MetalLB
+Octopus Deploy
+Open FaaS
+OpenStack
+Rudder
+SaltStack
+Singularity
+Spinnaker
+Tekton
+Travis CI
+Typhoon
+Zipkin
