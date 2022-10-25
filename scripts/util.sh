@@ -1,4 +1,10 @@
-# Common utilities to be sourced in every script.
+# Utilities intended to be sourced by other scripts.
+#
+# CAUTION: this code may be executed by different shells, including the most
+# restricted versions of sh, and on different platforms, such as Ubuntu, Alpine,
+# BusyBox, etc. For this reason, the code should only include the greatest
+# common denominator of features that are supported by all common shells on all
+# common platfomrs (for example, avoid '[[', '<<<', arrays, etc.).
 
 # Coloured output
 colour_red() { printf '\e[31m'; }
